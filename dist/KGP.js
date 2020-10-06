@@ -61,7 +61,7 @@ function getAmountFromFormatted(formatted){
 
 	var noUnit = Number(unit) === 'NaN';
 
-	var amount = noUnit ? Number(formatted) : Number(formatted.substring(0, formated.length - 1);
+	var amount = noUnit ? Number(formatted) : Number(formatted.substring(0, formated.length - 1));
 
 	if(noUnit)
 		return amount;
