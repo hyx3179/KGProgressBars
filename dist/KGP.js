@@ -18,31 +18,35 @@ function initKGPLeftColumn(){
 	$rows.each(function(index, item){
 
 		var $row = $(item);
-		var maxAmount = getAmountLeftColumn($row.find('.maxRes'));
+		
+		// #5
+		if(!$row.hasClass('ressource_kittens')){
 
-		var currentAmount = getAmountLeftColumn($row.find('.resAmount'));
+			var maxAmount = getAmountLeftColumn($row.find('.maxRes'));
 
-		if(maxAmount > 0 && currentAmount > 0)
-		{
-			var percentage = (100 * currentAmount) / maxAmount;// #1
+			var currentAmount = getAmountLeftColumn($row.find('.resAmount'));
 
-			$row.css('background-repeat', 'no-repeat');
-			$row.css('background-position', 'bottom left');
-			$row.css('background-size', percentage + '% 2px');
-
-			if(percentage > 95)
+			if(maxAmount > 0 && currentAmount > 0)
 			{
-				$row.css('background-image', 'linear-gradient(0, red, red)');
+				var percentage = (100 * currentAmount) / maxAmount;// #1
+
+				$row.css('background-repeat', 'no-repeat');
+				$row.css('background-position', 'bottom left');
+				$row.css('background-size', percentage + '% 1px');// #3
+
+				if(percentage > 95)
+				{
+					$row.css('background-image', 'linear-gradient(0, red, red)');
+				}
+				else if(percentage > 75)
+				{
+                        	        $row.css('background-image', 'linear-gradient(0, orange, orange)');
+	                        }
+        	                else
+                	        {
+                        	        $row.css('background-image', 'linear-gradient(0, green, green)');
+	                        }
 			}
-			else if(percentage > 75)
-			{
-                                $row.css('background-image', 'linear-gradient(0, orange, orange)');
-                        }
-                        else
-                        {
-                                $row.css('background-image', 'linear-gradient(0, green, green)');
-                        }
-
 		}
 	});
 }
@@ -59,7 +63,7 @@ function getAmountLeftColumn($cell){
 function getAmountFromFormatted(formatted){
 	var unit = formatted.slice(-1);
 
-	var noUnit = Number(unit) !== 'NaN';// #2
+	var noUnit = !isNaN(Number(unit));// #4
 
 	var amount = noUnit ? Number(formatted) : Number(formatted.substring(0, formatted.length - 1));
 
