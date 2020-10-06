@@ -20,7 +20,7 @@ function initKGPLeftColumn(){
 		var $row = $(item);
 		
 		// #5
-		if(!$row.hasClass('ressource_kittens')){
+		if(!$row.hasClass('resource_kittens')){
 
 			var maxAmount = getAmountLeftColumn($row.find('.maxRes'));
 
