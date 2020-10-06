@@ -24,7 +24,7 @@ function initKGPLeftColumn(){
 
 		if(maxAmount > 0 && currentAmount > 0)
 		{
-			var percentage = (100 * maxAmount) / currentAmount;
+			var percentage = (100 * currentAmount) / maxAmount;// #1
 
 			$row.css('background-repeat', 'no-repeat');
 			$row.css('background-position', 'bottom left');
@@ -59,7 +59,7 @@ function getAmountLeftColumn($cell){
 function getAmountFromFormatted(formatted){
 	var unit = formatted.slice(-1);
 
-	var noUnit = Number(unit) === 'NaN';
+	var noUnit = Number(unit) !== 'NaN';// #2
 
 	var amount = noUnit ? Number(formatted) : Number(formatted.substring(0, formatted.length - 1));
 
