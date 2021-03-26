@@ -72,9 +72,15 @@ function getAmountFromFormatted(formatted){
 	
 	switch(unit){
 		case 'K':
-			return amount*1000;
+			return amount*1e3;
 		case 'M':
-			return amount*1000000;
+			return amount*1e6;
+        case 'G':
+			return amount*1e9;
+        case 'T':
+			return amount*1e12;
+        case 'P':
+			return amount*1e15;
 		default:
 			return 0;
 	}
