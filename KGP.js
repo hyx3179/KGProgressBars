@@ -12,7 +12,7 @@ function initKGP() {
 			setTimeout(() => initKGP(), 500);
 		}
 	} else {
-		if (KGPInterval) {
+		if (typeof KGPInterval !== 'undefined') {
 			clearInterval(KGPInterval);
 			window.KGPInterval = undefined;
 			initKGPLeftColumn(false);
