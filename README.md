@@ -1,3 +1,7 @@
+## 合并 https://gitee.com/likexia/cat-zh
+
+---
+
 # KGProgressBars
 
 Adds Progress bars to Kittens Game
